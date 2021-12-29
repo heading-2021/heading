@@ -24,11 +24,19 @@ class MainActivity : AppCompatActivity() {
     lateinit var tab1:Tab1
     lateinit var tab2:Tab2
     lateinit var tab3:Tab3
-
+    lateinit var myAdapter: Tab1Adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+
+
+
+
+
 
         tab1 = Tab1()
         tab2 = Tab2()
@@ -43,6 +51,8 @@ class MainActivity : AppCompatActivity() {
                 when(tab?.position){
                     0 -> {
                         //tab1
+//                        val data1 : ArrayList<String> = initData1()
+//                        val fm : FragmentManager = getActivity(abd).getFragmentManager()
                         replaceView(tab1)
                     }
                     1 -> {
@@ -60,6 +70,14 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    private fun initData1() : ArrayList<String>{
+        val data1 : ArrayList<String> = ArrayList<String>()
+        for (i : Int in 1..20) {
+            data1.add(String.format("TEXT %d", i))
+        }
+        return data1
     }
 
 
