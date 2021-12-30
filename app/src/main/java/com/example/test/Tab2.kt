@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,11 +19,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import kotlinx.android.synthetic.main.fragment_tab2.*
 
 
 class Tab2 : Fragment() {
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -58,12 +61,26 @@ class Tab2 : Fragment() {
             startActivityForResult(intent, 200)
         }
 
-//        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL)
-        val layoutManager = GridLayoutManager(requireContext(), 2)
+        var focus_switch = view.findViewById<Switch>(R.id.focus)
+        //  스위치를 클릭했을때
+        focus_switch.setOnCheckedChangeListener{CompoundButton, onSwitch ->
 
-        recyclerview.layoutManager = layoutManager
-        recyclerview.adapter = adapter
+            //  스위치가 켜지면
+            if (onSwitch){
+                Toast.makeText(context, "focus on", Toast.LENGTH_SHORT).show()
+                val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                recyclerview.layoutManager = layoutManager
+                recyclerview.adapter = adapter
+            }
+
+            //  스위치가 꺼지면
+            else{
+                Toast.makeText(context, "focus off", Toast.LENGTH_SHORT).show()
+                val layoutManager = GridLayoutManager(requireContext(), 2)
+                recyclerview.layoutManager = layoutManager
+                recyclerview.adapter = adapter
+            }
+        }
 
         return view
     }
