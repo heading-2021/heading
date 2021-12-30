@@ -64,7 +64,6 @@ class Tab2 : Fragment() {
         var focus_switch = view.findViewById<Switch>(R.id.focus)
         //  스위치를 클릭했을때
         focus_switch.setOnCheckedChangeListener{CompoundButton, onSwitch ->
-
             //  스위치가 켜지면
             if (onSwitch){
                 Toast.makeText(context, "focus on", Toast.LENGTH_SHORT).show()
@@ -81,7 +80,6 @@ class Tab2 : Fragment() {
                 recyclerview.adapter = adapter
             }
         }
-
         return view
     }
 
