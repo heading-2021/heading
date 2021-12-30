@@ -1,5 +1,6 @@
 package com.example.test
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,21 +10,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.FragmentActivity
+
 
 class Tab2 : Fragment() {
     var list = ArrayList<Uri>()
-    val adapter = MultiImageAdapter(list, requireContext())
+    val adapter = MultiImageAdapter(list, this)
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is MainActivity) {
+            var mContext = context
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        FragmentActivity().supportFragmentManager
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_tab2, container, false)
+        val view = inflater.inflate(R.layout.fragment_tab2, container, false)
 
         // 이미지 불러오기 버튼
         var getImage_btn = view.findViewById<Button>(R.id.getImage)
@@ -49,7 +63,9 @@ class Tab2 : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
+        for (fragment in FragmentActivity().supportFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
+        }
 
         if (resultCode == AppCompatActivity.RESULT_OK && requestCode == 200) {
             list.clear()
@@ -75,7 +91,6 @@ class Tab2 : Fragment() {
                 }
             }
             adapter.notifyDataSetChanged()
-
         }
 
     }

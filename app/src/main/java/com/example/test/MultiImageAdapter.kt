@@ -1,6 +1,5 @@
 package com.example.test
 
-import android.content.Context
 import android.net.Uri
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
-class MultiImageAdapter(private val items: ArrayList<Uri>, val context: Context) : RecyclerView.Adapter<MultiImageAdapter.ViewHolder>() {
+class MultiImageAdapter(private val items: ArrayList<Uri>, val context: Tab2) : RecyclerView.Adapter<MultiImageAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
