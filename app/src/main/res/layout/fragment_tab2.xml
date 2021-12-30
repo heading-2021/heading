@@ -34,8 +34,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:text="GET IMAGE"
-        app:icon="@android:drawable/ic_dialog_dialer"
+        android:background="#00ff0000"
+        android:drawableLeft="@drawable/image_size"
+        android:text="Load Image"
+
+        android:textColor="#101010"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
