@@ -1,10 +1,18 @@
 package com.example.test
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,10 +33,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var tab2:Tab2
     lateinit var tab3:Tab3
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContentView(R.layout.activity_main)
+        Log.d("where","mainOnCreate")
+
 
         tab1 = Tab1()
         tab2 = Tab2()
@@ -43,6 +54,9 @@ class MainActivity : AppCompatActivity() {
                 when(tab?.position){
                     0 -> {
                         //tab1
+//                        val data1 : ArrayList<String> = initData1()
+//                        val fm : FragmentManager = getActivity(abd).getFragmentManager()
+                        Log.d("where","mainOnTabSelected")
                         replaceView(tab1)
                     }
                     1 -> {
@@ -60,6 +74,14 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    private fun initData1() : ArrayList<String>{
+        val data1 : ArrayList<String> = ArrayList<String>()
+        for (i : Int in 1..20) {
+            data1.add(String.format("TEXT %d", i))
+        }
+        return data1
     }
 
 
