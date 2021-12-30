@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,7 +74,7 @@ class Tab2 : Fragment() {
             if (data?.clipData != null) { // 사진 여러개 선택한 경우
                 val count = data.clipData!!.itemCount
                 if (count > 20) {
-//                    Toast.makeText(applicationContext, "사진은 20장까지 선택 가능합니다.", Toast.LENGTH_LONG)
+                    Toast.makeText(requireContext(), "사진은 20장까지 선택 가능합니다.", Toast.LENGTH_LONG)
                     return
                 }
                 for (i in 0 until count) {
