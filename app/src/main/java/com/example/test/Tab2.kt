@@ -9,10 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.GridLayout
-import android.widget.Switch
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -61,17 +58,21 @@ class Tab2 : Fragment() {
             startActivityForResult(intent, 200)
         }
 
+        val layoutManager = GridLayoutManager(requireContext(), 2)
+        recyclerview.layoutManager = layoutManager
+        recyclerview.adapter = adapter
+
         var focus_switch = view.findViewById<Switch>(R.id.focus)
+
         //  스위치를 클릭했을때
-        focus_switch.setOnCheckedChangeListener{CompoundButton, onSwitch ->
+        focus_switch.setOnCheckedChangeListener{CompoundButton, isChecked ->
             //  스위치가 켜지면
-            if (onSwitch){
+            if (isChecked){
                 Toast.makeText(context, "focus on", Toast.LENGTH_SHORT).show()
                 val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 recyclerview.layoutManager = layoutManager
                 recyclerview.adapter = adapter
             }
-
             //  스위치가 꺼지면
             else{
                 Toast.makeText(context, "focus off", Toast.LENGTH_SHORT).show()

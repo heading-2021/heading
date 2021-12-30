@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:background="#00ff0000"
-        android:drawableRight="@drawable/image_size"
+        android:drawableRight="@drawable/plus_size"
         android:text="Press to Load Image"
         android:textColor="#101010"
         app:layout_constraintBottom_toBottomOf="parent"
