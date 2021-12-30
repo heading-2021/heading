@@ -2,6 +2,7 @@ package com.example.test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,18 +25,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var tab1:Tab1
     lateinit var tab2:Tab2
     lateinit var tab3:Tab3
-    lateinit var myAdapter: Tab1Adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
-
-
-
-
+        Log.d("where","mainOnCreate")
 
 
         tab1 = Tab1()
@@ -53,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                         //tab1
 //                        val data1 : ArrayList<String> = initData1()
 //                        val fm : FragmentManager = getActivity(abd).getFragmentManager()
+                        Log.d("where","mainOnTabSelected")
                         replaceView(tab1)
                     }
                     1 -> {
