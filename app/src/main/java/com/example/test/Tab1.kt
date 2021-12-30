@@ -1,7 +1,11 @@
 package com.example.test
 
+import android.Manifest
+import android.app.AlertDialog
 import android.content.ContentResolver
 import android.content.Context
+import android.content.DialogInterface
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
@@ -11,9 +15,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.tab1_fragment.*
+import kotlinx.android.synthetic.main.fragment_tab1.*
 
 class Tab1 : Fragment() {
     // TODO: Rename and change types of parameters
@@ -22,12 +28,26 @@ class Tab1 : Fragment() {
     private var mContext : Context? = null
     private var contactsData : MutableList<PhoneBook>? = null
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions:Array<String>, grantResults:IntArray){
+        when (requestCode) {
+            1000 -> {
+                if ((grantResults.isNotEmpty() && grantResults[0]== PackageManager.PERMISSION_GRANTED)) {
+                    //권한 획득 성공
+                }else{
+                    //권한 획득 실패
+                }
+            }
+        }
+    }
 
     override fun onAttach(context : Context){
         super.onAttach(context)
 //        Log.d("where","tab1Attach")
         if (context is MainActivity) {
             mContext = context
+            if (mContext == null){
+                throw java.lang.IllegalArgumentException("mContext is null")
+            }
         }
     }
 
@@ -37,27 +57,37 @@ class Tab1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 //        Log.d("where","tab1OnCreateView")
-        return inflater.inflate(R.layout.tab1_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_tab1, container, false)
     }
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
-        Log.d("where","tab1OnCreatedView")
-        if (mContext!=null) {
-
-
-            contactsData = getContacts(mContext!!)
-            recycler_view.apply {
-                layoutManager = LinearLayoutManager(activity)
-                adapter = Tab1Adapter(contactsData!!, mContext!!)
-
+        if (ContextCompat.checkSelfPermission(mContext!!, Manifest.permission.READ_CONTACTS)==PackageManager.PERMISSION_DENIED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.READ_CONTACTS)){
+                ActivityCompat.requestPermissions(requireActivity(),arrayOf(Manifest.permission.READ_CONTACTS), 1000)
+//                showExplanation(mContext!!,"Permission needed","give permission",Manifest.permission.READ_CONTACTS,1000)
+            }else{
+                ActivityCompat.requestPermissions(requireActivity(),arrayOf(Manifest.permission.READ_CONTACTS), 1000)
             }
-        }else {throw IllegalArgumentException("cursor is null")}
+        }
+
+        if (ContextCompat.checkSelfPermission(mContext!!, Manifest.permission.READ_CONTACTS)!=PackageManager.PERMISSION_DENIED){
+            Log.d("where","tab1 OnCreatedView")
+            if (mContext!=null) {
+                contactsData = getContacts(mContext!!)
+                recycler_view.apply {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = Tab1Adapter(contactsData!!, mContext!!)
+                }
+            }else {throw IllegalArgumentException("cursor is null")}
+        }else {throw IllegalArgumentException("permission error")}
+
     }
 }
 
 public data class PhoneBook (
     val id : String,
+    val userPhoto : Int,
     val name : String,
     val phone : String
 )
@@ -95,7 +125,7 @@ public fun getContacts(context: Context) : MutableList<PhoneBook>{
             val name: String = cursor.getString(nameIndex)
             val phone: String = cursor.getString(phoneIndex)
 
-            val phoneBook: PhoneBook = PhoneBook(id, name, phone)
+            val phoneBook: PhoneBook = PhoneBook(id,1, name, phone)
 
             datas.add(phoneBook)
         }
@@ -104,6 +134,7 @@ public fun getContacts(context: Context) : MutableList<PhoneBook>{
     }else {throw IllegalArgumentException("cursor is null")}
     return datas
 }
+
 
 
 
