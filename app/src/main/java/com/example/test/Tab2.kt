@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_tab2.*
 class Tab2 : Fragment() {
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
+    val adapter_2 = MultiImageAdapter_2(list, this)
 
 
     override fun onAttach(context: Context) {
@@ -71,7 +72,7 @@ class Tab2 : Fragment() {
                 Toast.makeText(context, "focus on", Toast.LENGTH_SHORT).show()
                 val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 recyclerview.layoutManager = layoutManager
-                recyclerview.adapter = adapter
+                recyclerview.adapter = adapter_2
             }
             //  스위치가 꺼지면
             else{
@@ -114,6 +115,8 @@ class Tab2 : Fragment() {
                 }
             }
             adapter.notifyDataSetChanged()
+            adapter_2.notifyDataSetChanged()
+
         }
 
     }
