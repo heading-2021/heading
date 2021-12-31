@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -37,22 +36,11 @@ class Tab1 : Fragment() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions:Array<String>, grantResults:IntArray){
         when (requestCode) {
-            READ_CONTACTS_REQUEST_CODE -> {
-                Log.d("where","onRequestPermisssion")
+            1000 -> {
                 if ((grantResults.isNotEmpty() && grantResults[0]== PackageManager.PERMISSION_GRANTED)) {
                     //권한 획득 성공
-                    Toast.makeText(mContext!!,"read_contact permission accpted",Toast.LENGTH_LONG).show()
-                    justpermitted=true
-                    if (mContext!=null) {
-                        contactsData = getContacts(mContext!!)
-                        recycler_view.apply {
-                            layoutManager = LinearLayoutManager(activity)
-                            adapter = Tab1Adapter(contactsData!!, mContext!!)
-                        }
-                    }else {throw IllegalArgumentException("context is null")}
                 }else{
                     //권한 획득 실패
-                    Toast.makeText(mContext!!,"read_contact permission denied",Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -91,6 +79,7 @@ class Tab1 : Fragment() {
             } else {
                 ActivityCompat.requestPermissions(requireActivity(),arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE), 1000)
             }
+        }
 
         if (checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE))) {
             Log.d("where", "tab1 OnCreatedView")
@@ -115,6 +104,7 @@ class Tab1 : Fragment() {
                     swipeHelperCallback.removePreviousClamp(binding.recyclerView)
                     false
                 }
+
             } else {
                 throw IllegalArgumentException("cursor is null")
             }
@@ -122,9 +112,10 @@ class Tab1 : Fragment() {
             throw IllegalArgumentException("permission error")
         }
     }
-
     private fun checkPermission(permissions: Array<String>): Boolean { return permissions.all { ContextCompat.checkSelfPermission(mContext!!, it) == PackageManager.PERMISSION_GRANTED } }
+
 }
+
 
 public data class PhoneBook (
     val id : String,
@@ -151,8 +142,7 @@ public fun getContacts(context: Context) : MutableList<PhoneBook>{
     // ContactsContract.CommonDataKinds.Phone 이 경로에 상수로 칼럼이 정의
     val projection : Array<String> = arrayOf(ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
         ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-        ContactsContract.CommonDataKinds.Phone.NUMBER,
-        ContactsContract.Contacts.PHOTO_ID);
+        ContactsContract.CommonDataKinds.Phone.NUMBER);
     // 4. 커서로 리턴된다. 반복문을 돌면서 cursor 에 담긴 데이터를 하나씩 추출
     val cursor : Cursor? = resolver.query(phoneUri, projection, null, null, null)
 
@@ -175,8 +165,3 @@ public fun getContacts(context: Context) : MutableList<PhoneBook>{
     }else {throw IllegalArgumentException("cursor is null")}
     return datas
 }
-
-
-
-
-

@@ -8,6 +8,10 @@ android {
     compileSdk 32
     buildFeatures.viewBinding true
 
+    dataBinding{
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.test"
         minSdk 21
