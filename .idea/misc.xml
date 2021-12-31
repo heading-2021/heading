@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.228125" />
+        <entry key="app/src/main/res/drawable/image_size.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_tab1.xml" value="0.29976851851851855" />
+        <entry key="app/src/main/res/layout/fragment_tab2.xml" value="0.12715298885511653" />
+        <entry key="app/src/main/res/layout/fragment_tab3.xml" value="0.12715298885511653" />
+        <entry key="app/src/main/res/layout/frame_layout.xml" value="0.3523550724637681" />
+        <entry key="app/src/main/res/layout/item_recycle.xml" value="0.1403985507246377" />
+        <entry key="app/src/main/res/layout/item_recycler.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/multi_image_item.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/recycle_test.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/tab1_item_recycle.xml" value="0.2236842105263158" />
+        <entry key="app/src/main/res/layout/tab1_item_recycle2.xml" value="0.21124361158432708" />
       </map>
     </option>
   </component>
