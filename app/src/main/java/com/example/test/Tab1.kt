@@ -2,6 +2,7 @@ package com.example.test
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.ClipData
 import android.content.ContentResolver
 import android.content.Context
 import android.content.DialogInterface
@@ -18,8 +19,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.test.databinding.FragmentTab1Binding
 import kotlinx.android.synthetic.main.fragment_tab1.*
 
 class Tab1 : Fragment() {
@@ -28,9 +32,8 @@ class Tab1 : Fragment() {
     private var adapter: RecyclerView.Adapter<Tab1Adapter.ViewHolder>? = null
     private var mContext : Context? = null
     private var contactsData : MutableList<PhoneBook>? = null
-    private val READ_CONTACTS_REQUEST_CODE :Int = 1000
-    private val READ_EXTERNAL_STORAGE_REQUEST_CODE:Int = 200
-    private var justpermitted :Boolean = false
+    private var fragmentTab1Binding: FragmentTab1Binding? = null
+    private val binding get() = fragmentTab1Binding!!
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions:Array<String>, grantResults:IntArray){
         when (requestCode) {
@@ -72,32 +75,55 @@ class Tab1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 //        Log.d("where","tab1OnCreateView")
-        return inflater.inflate(R.layout.fragment_tab1, container, false)
+        val binding = FragmentTab1Binding.inflate(inflater,container,false)
+        fragmentTab1Binding = binding
+        return fragmentTab1Binding!!.root
+//        return inflater.inflate(R.layout.fragment_tab1, container, false)
     }
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
-        if (!hasPermissions(mContext!!,*arrayOf(Manifest.permission.READ_CONTACTS))){
-            requestPermissions(
-                    arrayOf(Manifest.permission.READ_CONTACTS),
-                    READ_CONTACTS_REQUEST_CODE)
+        //permission checking
+        if (!checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE))) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.READ_CONTACTS)) {
+                ActivityCompat.requestPermissions(requireActivity(),arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE), 1000)
+//                showExplanation(mContext!!,"Permission needed","give permission",Manifest.permission.READ_CONTACTS,1000)
+            } else {
+                ActivityCompat.requestPermissions(requireActivity(),arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE), 1000)
             }
 
-        if (justpermitted||hasPermissions(mContext!!,*arrayOf(Manifest.permission.READ_CONTACTS))){
-            if (mContext!=null) {
+        if (checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE))) {
+            Log.d("where", "tab1 OnCreatedView")
+            //get contacts data and attach them to the adapter
+            if (mContext != null) {
                 contactsData = getContacts(mContext!!)
+                val myAdapter : Tab1Adapter = Tab1Adapter(contactsData!!, mContext!!)
                 recycler_view.apply {
                     layoutManager = LinearLayoutManager(activity)
-                    adapter = Tab1Adapter(contactsData!!, mContext!!)
+                    adapter = myAdapter
                 }
-            }else {throw IllegalArgumentException("context is null")}
-        }
-        Log.d("where","tab1 OnCreatedView")
+                val swipeHelperCallback = Tab1SwipeHelperCallback(myAdapter).apply {
+                    // 스와이프한 뒤 고정시킬 위치 지정
+                    setClamp(resources.displayMetrics.widthPixels.toFloat() / 4)    // 1080 / 4 = 270
+                }
+                ItemTouchHelper(swipeHelperCallback).attachToRecyclerView(binding.recyclerView)
+                // 구분선 추가
+//                binding.recyclerView.addItemDecoration(DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL))
 
+                // 다른 곳 터치 시 기존 선택했던 뷰 닫기
+                binding.recyclerView.setOnTouchListener { _, _ ->
+                    swipeHelperCallback.removePreviousClamp(binding.recyclerView)
+                    false
+                }
+            } else {
+                throw IllegalArgumentException("cursor is null")
+            }
+        } else {
+            throw IllegalArgumentException("permission error")
+        }
     }
-    fun hasPermissions(context: Context, vararg permissions: String): Boolean = permissions.all {
-        ActivityCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
-    }
+
+    private fun checkPermission(permissions: Array<String>): Boolean { return permissions.all { ContextCompat.checkSelfPermission(mContext!!, it) == PackageManager.PERMISSION_GRANTED } }
 }
 
 public data class PhoneBook (
@@ -141,11 +167,10 @@ public fun getContacts(context: Context) : MutableList<PhoneBook>{
             val name: String = cursor.getString(nameIndex)
             val phone: String = cursor.getString(phoneIndex)
 
-            val phoneBook: PhoneBook = PhoneBook(id,1, name, phone)
+            val phoneBook: PhoneBook = PhoneBook(id, 1, name, phone)
 
             datas.add(phoneBook)
         }
-        Log.d("where","beforeclose")
         cursor.close()
     }else {throw IllegalArgumentException("cursor is null")}
     return datas
