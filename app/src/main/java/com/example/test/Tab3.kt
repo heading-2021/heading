@@ -77,7 +77,6 @@ class Tab3 : Fragment() {
             gif.setSpeed(gifSpeed(usedMemInPercentage_2.toFloat()))
             text.text= usedMemInPercentage_2.toString()+"%"
         }
-
         return view
     }
 }
