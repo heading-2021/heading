@@ -51,10 +51,6 @@ class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position : Int){
-//        val contactsData : MutableList<PhoneBook> = getContacts(context)
-//        Log.d("contacts",contactsData.toString())
-
-//        val curdata : PhoneBook= contactsData[position]
         val curdata : PhoneBook= datas[position]
 
 //
