@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#008000</color>
     <color name="skyblue">#9DCFFF</color>
+    <color name="nightskyblue">#0d182a</color>
+    <color name="nightyellow">#ffe000</color>
 </resources>

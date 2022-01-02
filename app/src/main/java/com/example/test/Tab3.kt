@@ -24,7 +24,9 @@ import pl.droidsonroids.gif.GifDrawable
 import pl.droidsonroids.gif.GifImageView
 
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
 import org.json.JSONArray
 import org.json.JSONObject
@@ -36,7 +38,7 @@ import java.util.*
 class Tab3 : Fragment() {
     private var mContext : Context? = null
     private val MYREQUESTCODE : Int = 3000
-
+    private lateinit var ramUsage : TextView
     override fun onAttach(context : Context){
         super.onAttach(context)
         if (context is MainActivity) {
@@ -83,8 +85,11 @@ class Tab3 : Fragment() {
 
         gif.setSpeed(gifSpeed(usedMemInPercentage.toFloat()))
         text.text= usedMemInPercentage.toString()+"%"
+        ramUsage=text
+
 
         btn.setOnClickListener{
+            gif_img.bringToFront()
             val memoryInfo_2 = ActivityManager.MemoryInfo()
             (requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getMemoryInfo(memoryInfo_2)
             val nativeHeapSize_2 = memoryInfo_2.totalMem
@@ -201,21 +206,52 @@ class Tab3 : Fragment() {
             val time = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(weatherCur.getLong("dt")*1000))
             val temp = weatherCur.getJSONObject("main").getString("temp")+"°C"
             val weatherDescription= weatherCur.getJSONArray("weather").getJSONObject(0).getString("description")
+            val weatherMain = weatherCur.getJSONArray("weather").getJSONObject(0).getString("main")
             val weatherIcon= weatherCur.getJSONArray("weather").getJSONObject(0).getString("icon")
             var weatherId= weatherCur.getJSONArray("weather").getJSONObject(0).getInt("id")
-            view?.findViewById<TextView>(resources.getIdentifier("${layoutId}time","id",requireActivity().packageName))?.setText(time)
+            view?.findViewById<TextView>(resources.getIdentifier("${layoutId}time","id",requireActivity().packageName))?.text=time
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}temp","id",requireActivity().packageName))?.text=temp
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_description","id",requireActivity().packageName))?.text=weatherDescription
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_icon","id",requireActivity().packageName))?.text=weatherIcon
-            weatherId = 801
-            when (weatherId){
-                601, 602->{ //snows
-                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.snow2)
-                }
-                801, 802->{ //some clouds
-                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.cloud)
-                }
 
+
+
+
+            val tempText = view?.findViewById<TextView>(R.id.temp_text)
+            val mainweatherText = view?.findViewById<TextView>(R.id.mainweather_text)
+            tempText?.text=temp
+            mainweatherText?.text=weatherMain
+
+            var dayNight :Char = weatherIcon[2]
+
+            Log.d("where","weatherid//100"+(weatherId/100).toString())
+
+            //setting the Weather Icon
+            if (weatherId/100 == 6){ // snow
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.snow)
+            }else if (weatherId==800){
+                if (dayNight=='d') {// clear day
+                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.sun)
+                    if (temp.toInt()>26){ //clear and hot
+                        view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.sun_hot)
+                    }
+                }else{ //clear night
+                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.moon)
+                }
+            }else if (weatherId/100 == 8){ // cloudy
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.cloud)
+            }else if (weatherId/100==3 || weatherId/100==5){ //drizzle
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.rain)
+            }else if (weatherId/100==2){ //thunderstorm
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.storm)
+            }
+
+            //setting the day or night
+            if (dayNight=='n'){
+                view?.findViewById<ConstraintLayout>(R.id.tab3)?.setBackgroundColor(ContextCompat.getColor(mContext!!,R.color.nightskyblue))
+                tempText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                mainweatherText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                ramUsage.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
             }
         }
 
