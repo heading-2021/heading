@@ -33,6 +33,17 @@ class Tab1 : Fragment() {
     private var fragmentTab1Binding: FragmentTab1Binding? = null
     private val binding get() = fragmentTab1Binding!!
 
+    override fun onAttach(context : Context){
+        super.onAttach(context)
+//        Log.d("where","tab1Attach")
+        if (context is MainActivity) {
+            mContext = context
+            if (mContext == null){
+                throw java.lang.IllegalArgumentException("mContext is null")
+            }
+        }
+    }
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions:Array<String>, grantResults:IntArray){
         when (requestCode) {
             1000 -> {
@@ -65,17 +76,6 @@ class Tab1 : Fragment() {
 //                        .show()
 //                    throw IllegalArgumentException("permission denied by user")
                 }
-            }
-        }
-    }
-
-    override fun onAttach(context : Context){
-        super.onAttach(context)
-//        Log.d("where","tab1Attach")
-        if (context is MainActivity) {
-            mContext = context
-            if (mContext == null){
-                throw java.lang.IllegalArgumentException("mContext is null")
             }
         }
     }

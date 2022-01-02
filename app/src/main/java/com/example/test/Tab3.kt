@@ -72,6 +72,7 @@ class Tab3 : Fragment() {
         var gif = GifDrawable(resources, R.raw.runner_1)
         var gif_img = view.findViewById<GifImageView>(R.id.gif)
         gif_img.setImageDrawable(gif)
+        gif_img.bringToFront()
 
         val memoryInfo = ActivityManager.MemoryInfo()
         (requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getMemoryInfo(memoryInfo)
