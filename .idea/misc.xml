@@ -3,10 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/asdf.xml" value="0.1859375" />
-        <entry key="app/src/main/res/layout/fragment_tab3.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/tab1_item_recycle.xml" value="0.1859375" />
-        <entry key="app/src/main/res/layout/weather.xml" value="0.37604166666666666" />
+        <entry key="..\:/Users/hyhsu/AndroidStudioProjects/heading/app/src/main/res/layout/fragment_tab2.xml" value="0.1" />
+        <entry key="..\:/Users/hyhsu/AndroidStudioProjects/heading/app/src/main/res/layout/fragment_tab3.xml" value="0.2" />
       </map>
     </option>
   </component>
