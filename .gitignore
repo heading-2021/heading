@@ -1,6 +1,10 @@
 *.iml
 .gradle
+<<<<<<< HEAD
+.idea
+=======
 ./idea
+>>>>>>> bd0c98b19ec24686f86cc8544a0a0cf35bf3ce02
 /local.properties
 /.idea/caches
 /.idea/libraries
