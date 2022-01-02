@@ -38,7 +38,8 @@ import java.util.*
 class Tab3 : Fragment() {
     private var mContext : Context? = null
     private val MYREQUESTCODE : Int = 3000
-    private lateinit var ramUsage : TextView
+    private lateinit var ramUsageTv : TextView
+    private lateinit var ramUsageDescriptionTv : TextView
     override fun onAttach(context : Context){
         super.onAttach(context)
         if (context is MainActivity) {
@@ -68,7 +69,8 @@ class Tab3 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_tab3, container, false)
 
-        var text = view.findViewById<TextView>(R.id.test)
+        var ramUsage = view.findViewById<TextView>(R.id.ram_usage)
+
         var btn = view.findViewById<ImageButton>(R.id.imageButton)
 //        var gif = GifDrawable(resources, R.drawable.runner_2)
         var gif = GifDrawable(resources, R.raw.runner_1)
@@ -84,9 +86,10 @@ class Tab3 : Fragment() {
         val usedMemInPercentage = usedMemInBytes * 100 / nativeHeapSize
 
         gif.setSpeed(gifSpeed(usedMemInPercentage.toFloat()))
-        text.text= usedMemInPercentage.toString()+"%"
-        ramUsage=text
+        ramUsage.text= usedMemInPercentage.toString()+"%"
 
+        ramUsageTv=ramUsage
+        ramUsageDescriptionTv = view.findViewById(R.id.ram_usage_description)
 
         btn.setOnClickListener{
             gif_img.bringToFront()
@@ -98,7 +101,7 @@ class Tab3 : Fragment() {
             val usedMemInPercentage_2 = usedMemInBytes_2 * 100 / nativeHeapSize_2
 
             gif.setSpeed(gifSpeed(usedMemInPercentage_2.toFloat()))
-            text.text= usedMemInPercentage_2.toString()+"%"
+            ramUsage.text= usedMemInPercentage_2.toString()+"%"
         }
         return view
     }
@@ -251,7 +254,8 @@ class Tab3 : Fragment() {
                 view?.findViewById<ConstraintLayout>(R.id.tab3)?.setBackgroundColor(ContextCompat.getColor(mContext!!,R.color.nightskyblue))
                 tempText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 mainweatherText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
-                ramUsage.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                ramUsageTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                ramUsageDescriptionTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
             }
         }
 

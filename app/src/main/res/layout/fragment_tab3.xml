@@ -81,17 +81,26 @@
                 android:id="@+id/gif"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
-                android:layout_above="@id/test"
+                android:layout_above="@id/ram_usage_description"
                 android:src="@raw/runner_1" />
-
             <TextView
-                android:id="@+id/test"
+                android:id="@+id/ram_usage_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/ram_usage"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:text="Current Ram Usage"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/ram_usage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/imageButton"
                 android:layout_centerHorizontal="true"
                 android:padding="10dp"
-                android:text="Ram Usage"
+                android:text="Ram Usage Loading..."
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
