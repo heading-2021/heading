@@ -40,6 +40,7 @@ class Tab3 : Fragment() {
     private val MYREQUESTCODE : Int = 3000
     private lateinit var ramUsageTv : TextView
     private lateinit var ramUsageDescriptionTv : TextView
+    private lateinit var btnV : ImageButton
     override fun onAttach(context : Context){
         super.onAttach(context)
         if (context is MainActivity) {
@@ -90,6 +91,7 @@ class Tab3 : Fragment() {
 
         ramUsageTv=ramUsage
         ramUsageDescriptionTv = view.findViewById(R.id.ram_usage_description)
+        btnV = btn
 
         btn.setOnClickListener{
             gif_img.bringToFront()
@@ -256,6 +258,7 @@ class Tab3 : Fragment() {
                 mainweatherText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 ramUsageTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 ramUsageDescriptionTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                btnV.setColorFilter(ContextCompat.getColor(mContext!!,R.color.nightyellow))
             }
         }
 
