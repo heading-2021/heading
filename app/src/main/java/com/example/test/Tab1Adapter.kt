@@ -17,7 +17,6 @@ import com.example.test.databinding.Tab1ItemRecycleBinding
 class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context:Context) : RecyclerView.Adapter<Tab1Adapter.ViewHolder>() {
 
 
-
     inner class ViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
         var itemName: TextView = itemView.findViewById(R.id.tab1_name)
         var itemPhone: TextView = itemView.findViewById(R.id.tab1_phone)
@@ -31,6 +30,7 @@ class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context
             })
             callButton.setOnClickListener(View.OnClickListener {
                 Log.d("where","button clicked!")
+
                 var intent = Intent(Intent.ACTION_CALL)
                 intent.data= Uri.parse("tel:"+itemPhone.text)
 
@@ -51,10 +51,6 @@ class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position : Int){
-//        val contactsData : MutableList<PhoneBook> = getContacts(context)
-//        Log.d("contacts",contactsData.toString())
-
-//        val curdata : PhoneBook= contactsData[position]
         val curdata : PhoneBook= datas[position]
 
 //
