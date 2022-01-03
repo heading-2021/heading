@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        app:tabIndicatorColor="@color/design_default_color_primary"
+        app:tabIconTint="@color/tab_icon_color"
+        app:tabIndicatorColor="@color/nightyellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
