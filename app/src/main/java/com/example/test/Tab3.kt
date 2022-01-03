@@ -89,11 +89,15 @@ class Tab3 : Fragment() {
         gif.setSpeed(gifSpeed(usedMemInPercentage.toFloat()))
         ramUsage.text= usedMemInPercentage.toString()+"%"
 
+
+        //save for night mode
         ramUsageTv=ramUsage
         ramUsageDescriptionTv = view.findViewById(R.id.ram_usage_description)
         btnV = btn
 
         btn.setOnClickListener{
+            Log.d("where","BtnClkLstner")
+            getWeather()
             gif_img.bringToFront()
             val memoryInfo_2 = ActivityManager.MemoryInfo()
             (requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getMemoryInfo(memoryInfo_2)
@@ -104,6 +108,7 @@ class Tab3 : Fragment() {
 
             gif.setSpeed(gifSpeed(usedMemInPercentage_2.toFloat()))
             ramUsage.text= usedMemInPercentage_2.toString()+"%"
+
         }
         return view
     }
@@ -113,7 +118,7 @@ class Tab3 : Fragment() {
         getWeather()
     }
     private fun checkPermission(permissions: Array<String>): Boolean { return permissions.all { ActivityCompat.checkSelfPermission(mContext!!, it) == PackageManager.PERMISSION_GRANTED } }
-
+ㅎ
     override fun onRequestPermissionsResult(requestCode: Int, permissions:Array<String>, grantResults:IntArray){
         when (requestCode) {
             MYREQUESTCODE -> {
@@ -128,6 +133,7 @@ class Tab3 : Fragment() {
     }
 
     private fun getWeather(){
+//        Log.d("where","inGetWeather()")
         var fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         lateinit var lat: String
         lateinit var lon: String
@@ -166,6 +172,7 @@ class Tab3 : Fragment() {
                 responseFc =  null
                 responseCur = null
             }
+            Log.d("where","response :"+responses.toString())
             return responses
         }
 
@@ -173,14 +180,13 @@ class Tab3 : Fragment() {
             super.onPostExecute(result)
             try{
                 /* Extracting JSON returns from the API */
-                Log.d("where", "result : $result")
-                val jsonObjFc = JSONObject(result[0])
+//                val jsonObjFc = JSONObject(result[0])
                 val jsonObjCur = JSONObject(result[1])
 
-                val listFc = jsonObjFc.getJSONArray("list")
-                for (i:Int in 0..2){
-                    setWeatherFcOnView(listFc,i)
-                }
+//                val listFc = jsonObjFc.getJSONArray("list")
+//                for (i:Int in 0..2){
+//                    setWeatherFcOnView(listFc,i)
+//                }
                 setWeatherCurOnView(jsonObjCur)
                 view?.findViewById<RelativeLayout>(R.id.tab3_weatherfc_container)?.visibility =View.VISIBLE
             }catch (e:Exception){
@@ -198,7 +204,6 @@ class Tab3 : Fragment() {
             val weatherDescription= interval.getJSONArray("weather").getJSONObject(0).getString("description")
             val weatherIcon= interval.getJSONArray("weather").getJSONObject(0).getString("icon")
             val pop = interval.getString("pop")
-            Log.d("where",weatherDescription)
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}time","id",requireActivity().packageName))?.setText(time)
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}temp","id",requireActivity().packageName))?.text=temp
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_description","id",requireActivity().packageName))?.text=weatherDescription
@@ -218,14 +223,15 @@ class Tab3 : Fragment() {
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}temp","id",requireActivity().packageName))?.text=temp
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_description","id",requireActivity().packageName))?.text=weatherDescription
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_icon","id",requireActivity().packageName))?.text=weatherIcon
-
-
-
+            Log.d("where",weatherDescription)
+            Log.d("where",time)
+            Log.d("where",weatherCur.getLong("dt").toString())
 
             val tempText = view?.findViewById<TextView>(R.id.temp_text)
             val mainweatherText = view?.findViewById<TextView>(R.id.mainweather_text)
             tempText?.text=temp
             mainweatherText?.text=weatherMain
+            view?.findViewById<TextView>(R.id.weather_update_time)?.text= "Updated at : $time"
 
             var dayNight :Char = weatherIcon[2]
 
