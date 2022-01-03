@@ -16,5 +16,6 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/nightyellow</item>
     </style>
 </resources>
