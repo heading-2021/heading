@@ -24,7 +24,9 @@ import pl.droidsonroids.gif.GifDrawable
 import pl.droidsonroids.gif.GifImageView
 
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
 import org.json.JSONArray
 import org.json.JSONObject
@@ -36,7 +38,9 @@ import java.util.*
 class Tab3 : Fragment() {
     private var mContext : Context? = null
     private val MYREQUESTCODE : Int = 3000
-
+    private lateinit var ramUsageTv : TextView
+    private lateinit var ramUsageDescriptionTv : TextView
+    private lateinit var btnV : ImageButton
     override fun onAttach(context : Context){
         super.onAttach(context)
         if (context is MainActivity) {
@@ -66,7 +70,8 @@ class Tab3 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_tab3, container, false)
 
-        var text = view.findViewById<TextView>(R.id.test)
+        var ramUsage = view.findViewById<TextView>(R.id.ram_usage)
+
         var btn = view.findViewById<ImageButton>(R.id.imageButton)
 //        var gif = GifDrawable(resources, R.drawable.runner_2)
         var gif = GifDrawable(resources, R.raw.runner_1)
@@ -82,9 +87,18 @@ class Tab3 : Fragment() {
         val usedMemInPercentage = usedMemInBytes * 100 / nativeHeapSize
 
         gif.setSpeed(gifSpeed(usedMemInPercentage.toFloat()))
-        text.text= usedMemInPercentage.toString()+"%"
+        ramUsage.text= usedMemInPercentage.toString()+"%"
+
+
+        //save for night mode
+        ramUsageTv=ramUsage
+        ramUsageDescriptionTv = view.findViewById(R.id.ram_usage_description)
+        btnV = btn
 
         btn.setOnClickListener{
+            Log.d("where","BtnClkLstner")
+            getWeather()
+            gif_img.bringToFront()
             val memoryInfo_2 = ActivityManager.MemoryInfo()
             (requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getMemoryInfo(memoryInfo_2)
             val nativeHeapSize_2 = memoryInfo_2.totalMem
@@ -93,7 +107,8 @@ class Tab3 : Fragment() {
             val usedMemInPercentage_2 = usedMemInBytes_2 * 100 / nativeHeapSize_2
 
             gif.setSpeed(gifSpeed(usedMemInPercentage_2.toFloat()))
-            text.text= usedMemInPercentage_2.toString()+"%"
+            ramUsage.text= usedMemInPercentage_2.toString()+"%"
+
         }
         return view
     }
@@ -118,6 +133,7 @@ class Tab3 : Fragment() {
     }
 
     private fun getWeather(){
+//        Log.d("where","inGetWeather()")
         var fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         lateinit var lat: String
         lateinit var lon: String
@@ -156,6 +172,7 @@ class Tab3 : Fragment() {
                 responseFc =  null
                 responseCur = null
             }
+            Log.d("where","response :"+responses.toString())
             return responses
         }
 
@@ -163,14 +180,13 @@ class Tab3 : Fragment() {
             super.onPostExecute(result)
             try{
                 /* Extracting JSON returns from the API */
-                Log.d("where", "result : $result")
-                val jsonObjFc = JSONObject(result[0])
+//                val jsonObjFc = JSONObject(result[0])
                 val jsonObjCur = JSONObject(result[1])
 
-                val listFc = jsonObjFc.getJSONArray("list")
-                for (i:Int in 0..2){
-                    setWeatherFcOnView(listFc,i)
-                }
+//                val listFc = jsonObjFc.getJSONArray("list")
+//                for (i:Int in 0..2){
+//                    setWeatherFcOnView(listFc,i)
+//                }
                 setWeatherCurOnView(jsonObjCur)
                 view?.findViewById<RelativeLayout>(R.id.tab3_weatherfc_container)?.visibility =View.VISIBLE
             }catch (e:Exception){
@@ -188,7 +204,6 @@ class Tab3 : Fragment() {
             val weatherDescription= interval.getJSONArray("weather").getJSONObject(0).getString("description")
             val weatherIcon= interval.getJSONArray("weather").getJSONObject(0).getString("icon")
             val pop = interval.getString("pop")
-            Log.d("where",weatherDescription)
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}time","id",requireActivity().packageName))?.setText(time)
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}temp","id",requireActivity().packageName))?.text=temp
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_description","id",requireActivity().packageName))?.text=weatherDescription
@@ -201,21 +216,55 @@ class Tab3 : Fragment() {
             val time = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(weatherCur.getLong("dt")*1000))
             val temp = weatherCur.getJSONObject("main").getString("temp")+"°C"
             val weatherDescription= weatherCur.getJSONArray("weather").getJSONObject(0).getString("description")
+            val weatherMain = weatherCur.getJSONArray("weather").getJSONObject(0).getString("main")
             val weatherIcon= weatherCur.getJSONArray("weather").getJSONObject(0).getString("icon")
             var weatherId= weatherCur.getJSONArray("weather").getJSONObject(0).getInt("id")
-            view?.findViewById<TextView>(resources.getIdentifier("${layoutId}time","id",requireActivity().packageName))?.setText(time)
+            view?.findViewById<TextView>(resources.getIdentifier("${layoutId}time","id",requireActivity().packageName))?.text=time
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}temp","id",requireActivity().packageName))?.text=temp
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_description","id",requireActivity().packageName))?.text=weatherDescription
             view?.findViewById<TextView>(resources.getIdentifier("${layoutId}weather_icon","id",requireActivity().packageName))?.text=weatherIcon
-            weatherId = 801
-            when (weatherId){
-                601, 602->{ //snows
-                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.snow2)
-                }
-                801, 802->{ //some clouds
-                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.cloud)
-                }
+            Log.d("where",weatherDescription)
+            Log.d("where",time)
+            Log.d("where",weatherCur.getLong("dt").toString())
 
+            val tempText = view?.findViewById<TextView>(R.id.temp_text)
+            val mainweatherText = view?.findViewById<TextView>(R.id.mainweather_text)
+            tempText?.text=temp
+            mainweatherText?.text=weatherMain
+            view?.findViewById<TextView>(R.id.weather_update_time)?.text= "Updated at : $time"
+
+            var dayNight :Char = weatherIcon[2]
+
+            Log.d("where","weatherid//100"+(weatherId/100).toString())
+
+            //setting the Weather Icon
+            if (weatherId/100 == 6){ // snow
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.snow)
+            }else if (weatherId==800){
+                if (dayNight=='d') {// clear day
+                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.sun)
+                    if (temp.toInt()>26){ //clear and hot
+                        view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.sun_hot)
+                    }
+                }else{ //clear night
+                    view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.moon)
+                }
+            }else if (weatherId/100 == 8){ // cloudy
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.cloud)
+            }else if (weatherId/100==3 || weatherId/100==5){ //drizzle
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.rain)
+            }else if (weatherId/100==2){ //thunderstorm
+                view?.findViewById<ImageView>(R.id.weather_imageView)?.setImageResource(R.drawable.storm)
+            }
+
+            //setting the day or night
+            if (dayNight=='n'){
+                view?.findViewById<ConstraintLayout>(R.id.tab3)?.setBackgroundColor(ContextCompat.getColor(mContext!!,R.color.nightskyblue))
+                tempText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                mainweatherText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                ramUsageTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                ramUsageDescriptionTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                btnV.setColorFilter(ContextCompat.getColor(mContext!!,R.color.nightyellow))
             }
         }
 

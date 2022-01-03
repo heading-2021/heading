@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -36,10 +37,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContentView(R.layout.activity_main)
         Log.d("where","mainOnCreate")
-
 
         tab1 = Tab1()
         tab2 = Tab2()
@@ -47,16 +46,11 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().add(R.id.frameLayout, tab1).commit()
 
-
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 //여기에 작성
                 when(tab?.position){
                     0 -> {
-                        //tab1
-//                        val data1 : ArrayList<String> = initData1()
-//                        val fm : FragmentManager = getActivity(abd).getFragmentManager()
-                        Log.d("where","mainOnTabSelected")
                         replaceView(tab1)
                     }
                     1 -> {
@@ -74,14 +68,6 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-    }
-
-    private fun initData1() : ArrayList<String>{
-        val data1 : ArrayList<String> = ArrayList<String>()
-        for (i : Int in 1..20) {
-            data1.add(String.format("TEXT %d", i))
-        }
-        return data1
     }
 
 
