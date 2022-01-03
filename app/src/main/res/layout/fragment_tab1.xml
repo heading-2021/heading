@@ -20,8 +20,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="40sp"
         android:layout_marginBottom="40sp"
@@ -29,7 +29,18 @@
         android:clickable="true"
         android:focusable="true"
         android:scaleType="center"
-        android:src="@drawable/cloud"
+        android:src="@drawable/plus_sign"
         app:backgroundTint="@color/nightyellow"
+        app:fabCustomSize="50dp"
          />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/fab_image"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:layout_marginEnd="40sp"-->
+<!--        android:layout_marginBottom="40sp"-->
+<!--        android:src="@drawable/plus"-->
+<!--        />-->
 </FrameLayout>

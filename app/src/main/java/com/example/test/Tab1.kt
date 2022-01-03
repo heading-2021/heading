@@ -26,6 +26,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_tab1.*
 import android.content.ContentResolver
 import android.content.Intent
+import android.media.Image
+import android.widget.ImageView
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
@@ -84,7 +86,9 @@ class Tab1 : Fragment(), View.OnClickListener {
         super.onViewCreated(itemView, savedInstanceState)
         //permission checking
         val fab : FloatingActionButton? =view?.findViewById(R.id.fab)
+//        val fabImage : ImageView? = view?.findViewById(R.id.fab_image)
         fab?.setOnClickListener(this)
+//        fabImage?.bringToFront()
 
 
         if (!checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE,Manifest.permission.WRITE_CONTACTS))) {
