@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.frameLayout, it).commit()
         }
     }
-
     lateinit var tab1:Tab1
     lateinit var tab2:Tab2
     lateinit var tab3:Tab3
@@ -66,6 +65,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
+    override fun onResume(){
+        super.onResume()
+    }
 
 }
