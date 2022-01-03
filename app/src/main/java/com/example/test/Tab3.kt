@@ -97,7 +97,18 @@ class Tab3 : Fragment() {
 
         btn.setOnClickListener{
             Log.d("where","BtnClkLstner")
+            ramUsage.text="Loading..."
+            /* weather update */
+            val tempText = view?.findViewById<TextView>(R.id.temp_text)
+            val mainweatherText = view?.findViewById<TextView>(R.id.mainweather_text)
+            tempText?.text="Loading..."
+            mainweatherText?.text=""
+            view?.findViewById<TextView>(R.id.weather_update_time)?.text= ""
             getWeather()
+
+            /* ramUsage update */
+
+
             gif_img.bringToFront()
             val memoryInfo_2 = ActivityManager.MemoryInfo()
             (requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getMemoryInfo(memoryInfo_2)
@@ -213,7 +224,8 @@ class Tab3 : Fragment() {
 
         private fun setWeatherCurOnView(weatherCur :JSONObject){
             val layoutId : String = "tab3_weathercur_"
-            val time = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(weatherCur.getLong("dt")*1000))
+//            val time = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(weatherCur.getLong("dt")*1000))
+            val time = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date())
             val temp = weatherCur.getJSONObject("main").getString("temp")+"°C"
             val weatherDescription= weatherCur.getJSONArray("weather").getJSONObject(0).getString("description")
             val weatherMain = weatherCur.getJSONArray("weather").getJSONObject(0).getString("main")
@@ -229,9 +241,11 @@ class Tab3 : Fragment() {
 
             val tempText = view?.findViewById<TextView>(R.id.temp_text)
             val mainweatherText = view?.findViewById<TextView>(R.id.mainweather_text)
+            val weatherUpdateTime= view?.findViewById<TextView>(R.id.weather_update_time)
             tempText?.text=temp
             mainweatherText?.text=weatherMain
-            view?.findViewById<TextView>(R.id.weather_update_time)?.text= "Updated at : $time"
+
+            weatherUpdateTime?.text= "Updated at : $time"
 
             var dayNight :Char = weatherIcon[2]
 
@@ -262,6 +276,7 @@ class Tab3 : Fragment() {
                 view?.findViewById<ConstraintLayout>(R.id.tab3)?.setBackgroundColor(ContextCompat.getColor(mContext!!,R.color.nightskyblue))
                 tempText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 mainweatherText?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
+                weatherUpdateTime?.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 ramUsageTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 ramUsageDescriptionTv.setTextColor(ContextCompat.getColor(mContext!!,R.color.nightyellow))
                 btnV.setColorFilter(ContextCompat.getColor(mContext!!,R.color.nightyellow))
