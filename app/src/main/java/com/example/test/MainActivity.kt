@@ -17,14 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.PorterDuff
 
 
-
-
-
-
 class MainActivity : AppCompatActivity() {
-
-
-
     private fun replaceView(tab: Fragment) {
         //화면 변경
         var selectedFragment: Fragment? = null

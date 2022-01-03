@@ -15,14 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.android.synthetic.main.fragment_tab2.*
 
 
 class Tab2 : Fragment() {
     var list = ArrayList<Uri>()
-    val adapter = MultiImageAdapter(list, this)
-    val adapter_2 = MultiImageAdapter_2(list, this)
+    val adapter = Tab2ImageAdapter(list, this)
+    val adapter_2 = Tab2ImageAdapter_focus(list, this)
 
 
     override fun onAttach(context: Context) {
