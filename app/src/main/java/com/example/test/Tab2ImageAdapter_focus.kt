@@ -34,13 +34,6 @@ class Tab2ImageAdapter_focus(private val items: ArrayList<Uri>, val context: Tab
             view.setOnClickListener(listener)
         }
 
-//        inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-//            override fun onClick(view: View) {
-//                var photoview = view.findViewById<PhotoView>(R.id.photoView)
-//                photoview.setImageResource(R.id.image_focus.toInt())
-//                Log.d("hihhi", "hello")
-//            }
-//        }
     }
 
 }
