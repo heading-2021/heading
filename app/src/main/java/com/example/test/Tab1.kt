@@ -22,9 +22,15 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test.databinding.FragmentTab1Binding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_tab1.*
+import android.content.ContentResolver
+import android.content.Intent
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 
-class Tab1 : Fragment() {
+
+class Tab1 : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<Tab1Adapter.ViewHolder>? = null
@@ -49,32 +55,13 @@ class Tab1 : Fragment() {
             1000 -> {
 //                if ((grantResults.isNotEmpty() && grantResults[0]== PackageManager.PERMISSION_GRANTED)) {
 //                    //권한 획득 성공
-                if (checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE))) {
+                if (checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE,Manifest.permission.WRITE_CONTACTS))) {
                     Log.d("where", "accepted!")
                     //get contacts data and attach them to the adapter
                     showContacts()
                 }else{
                     //권한 획득 실패
                     Log.d("where","permission denied by user")
-//                    AlertDialog.Builder(mContext)
-//                        .setTitle("알림")
-//                        .setMessage("저장소 권한이 거부되었습니다. 사용을 원하시면 설정에서 해당 권한을 직접 허용하셔야 합니다.")
-//                        .setNeutralButton("설정", object: DialogInterface.OnClickListener {
-//                            override fun onClick(dialogInterface:DialogInterface, i:Int) {
-//                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-//                                intent.setData(Uri.parse("package:" + requireActivity().packageName))
-//                                startActivity(intent)
-//                            }
-//                        })
-//                        .setPositiveButton("확인", object:DialogInterface.OnClickListener {
-//                            override fun onClick(dialogInterface:DialogInterface, i:Int) {
-//                                requireActivity().finish()
-//                            }
-//                        })
-//                        .setCancelable(false)
-//                        .create()
-//                        .show()
-//                    throw IllegalArgumentException("permission denied by user")
                 }
             }
         }
@@ -82,10 +69,11 @@ class Tab1 : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-//        Log.d("where","tab1OnCreateView")
+//        Log.d("where","tab1OnCreateView"
+
         val binding = FragmentTab1Binding.inflate(inflater,container,false)
         fragmentTab1Binding = binding
         return fragmentTab1Binding!!.root
@@ -95,15 +83,32 @@ class Tab1 : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         //permission checking
-        if (!checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE))) {
-                requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE), 1000)
+        val fab : FloatingActionButton? =view?.findViewById(R.id.fab)
+        fab?.setOnClickListener(this)
+
+
+        if (!checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE,Manifest.permission.WRITE_CONTACTS))) {
+                requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE,Manifest.permission.WRITE_CONTACTS), 1000)
         }else{
-            if (checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE))) {
+            if (checkPermission(arrayOf(Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE,Manifest.permission.WRITE_CONTACTS))) {
                 Log.d("where", "tab1 OnCreatedView")
                 //get contacts data and attach them to the adapter
                 showContacts()
             }else{
                 throw IllegalArgumentException("permission error")
+            }
+        }
+    }
+    override fun onClick(v:View){
+        when(v.id){
+            R.id.fab ->{
+                Log.d("where","fab clicked!")
+
+                val intent : Intent = Intent(requireActivity(), Tab1AddActivity::class.java)
+                requireActivity().startActivity(intent)
+
+                showContacts()
+
             }
         }
     }
@@ -134,14 +139,15 @@ class Tab1 : Fragment() {
             throw IllegalArgumentException("context is null")
         }
     }
+
 }
 
 
-public data class PhoneBook (
-    val id : String,
-    val userPhoto : Int,
-    val name : String,
-    val phone : String
+public data class PhoneBook(
+    val id: String,
+    val userPhoto: Int,
+    val name: String,
+    val phone: String,
 )
 
 public fun getContacts(context: Context) : MutableList<PhoneBook>{
@@ -185,3 +191,4 @@ public fun getContacts(context: Context) : MutableList<PhoneBook>{
     }else {throw IllegalArgumentException("cursor is null")}
     return datas
 }
+
