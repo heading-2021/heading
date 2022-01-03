@@ -118,7 +118,7 @@ class Tab3 : Fragment() {
         getWeather()
     }
     private fun checkPermission(permissions: Array<String>): Boolean { return permissions.all { ActivityCompat.checkSelfPermission(mContext!!, it) == PackageManager.PERMISSION_GRANTED } }
-ㅎ
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions:Array<String>, grantResults:IntArray){
         when (requestCode) {
             MYREQUESTCODE -> {
