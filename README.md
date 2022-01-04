@@ -1,8 +1,8 @@
 # MadCamp 2021 Winter_Ori59 Application
 ### Contact, Image Gallery,
 
-##Team : Heading
-### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
+## Team : Heading
+#### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
 
 ## Usage
 
