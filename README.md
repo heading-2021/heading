@@ -9,17 +9,13 @@
 #### 연락처 관리 기능
 
   - 연락처 로드
-    - Content Proivder를 통해 기기 내 연락처 정보를 불러옵니다
-    - 불러온 연락처 데이터를 Recycler View를 통해 화면에 출력합니다.
+      - Content Proivder를 통해 기기 내 연락처 정보를 불러옵니다
+      - 불러온 연락처 데이터를 Recycler View를 통해 화면에 출력합니다.
   - 연락처 추가
-    - 우측 하단의 "+" 버튼을 누르면, 연락처 추가화면으로 이동합니다.
-    - 이름과 전화번호를 입력하여 새로운 연락처를 추가할 수 있습니다.
-    - 추가한 연락처는 자동으로 기기 내 연락처 데이터와 연동됩니다.
-  - 연락처 삭제
-    - 특정 연락처를 좌측으로 swip하면, delete 버튼이 나타납니다.
-    - delete 버튼을 눌러, 해당 연락처를 삭제할 수 있습니다.
-    - 삭제한 연락처는 자동으로 기기 내 연락처 데이터와 연동됩니다.
-#### 통화 연결 기능     
+      - 우측 하단의 "+" 버튼을 누르면, 연락처 추가화면으로 이동합니다.
+      - 이름과 전화번호를 입력하여 새로운 연락처를 추가할 수 있습니다.
+      - 추가한 연락처는 자동으로 기기 내 연락처 데이터와 연동됩니다.  
+#### 스와이프 시 통화 연결 기능     
   - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
   - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
 
@@ -45,6 +41,12 @@
 
 #### 날씨 정보
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 비, 천둥번개, 눈)를 아이콘 및 텍스트로 확인할 수 있습니다.
+<img src="https://user-images.githubusercontent.com/78015565/148022075-d2c3d31e-0b23-422e-b6f2-51fdefcb013b.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/78015565/148022237-20701f4f-984c-40b3-aded-1770b01a2c1a.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/78015565/148022299-dfd6ef82-f92d-41c0-9340-8db7ebf604bd.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/78015565/148022355-962022d1-f56c-453f-8b5c-0aa869170ea9.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/78015565/148023257-c8d88e92-c36f-4e4b-a194-eca8ff85aede.jpg" width="200" height="400"/>
+
 #### Light/Dark Mode
   - 실시간 시간을 반영해 오전은 Light Mode, 오후는 Dark Mode로 자동 변환됩니다.
 #### 새로고침 기능
