@@ -41,10 +41,11 @@
 
 #### 날씨 정보
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 비, 천둥번개, 눈)를 아이콘 및 텍스트로 확인할 수 있습니다.
-<img src="https://user-images.githubusercontent.com/78015565/148022075-d2c3d31e-0b23-422e-b6f2-51fdefcb013b.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/78015565/148023352-c55b0b89-8c15-4c9c-8528-3bbb78365b7b.jpg" width="200" height="400"/>
 <img src="https://user-images.githubusercontent.com/78015565/148022237-20701f4f-984c-40b3-aded-1770b01a2c1a.jpg" width="200" height="400"/>
 <img src="https://user-images.githubusercontent.com/78015565/148022299-dfd6ef82-f92d-41c0-9340-8db7ebf604bd.jpg" width="200" height="400"/>
 <img src="https://user-images.githubusercontent.com/78015565/148022355-962022d1-f56c-453f-8b5c-0aa869170ea9.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/78015565/148023405-3cd4698b-5014-4270-bc7c-8245dc05b9bf.jpg" width="200" height="400"/>
 <img src="https://user-images.githubusercontent.com/78015565/148023257-c8d88e92-c36f-4e4b-a194-eca8ff85aede.jpg" width="200" height="400"/>
 
 #### Light/Dark Mode
