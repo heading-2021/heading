@@ -10,12 +10,12 @@
 + 기기 내 연락처 연동
 + 연락처 추가
 + 통화 연결
-    - 특정 연락처를 swipe 후, "call"" 버튼 클릭 시 자동으로 통화가 연결됩니다.
+    - 특정 연락처를 swipe 후, "call" 버튼 클릭 시 자동으로 통화가 연결됩니다.
 
 ### Tab2: Image Gallery
 + 기기 내 이미지 업로드
   - Step1. "Press to load image" 버튼을 누릅니다.
-  - Step2. 기기 내 길러리 이미지를 선택하면, 선택된 이미지가 어플리케이션에 업로드됩니다.
+  - Step2. 기기 내 갤러리 이미지를 선택하면, 선택된 이미지가 어플리케이션에 업로드됩니다.
 + Focus On/Off 기능
     - Focus On : Focused View(가로 scroll)
       - LinearLayoutManager를 통해 한 이미지를 집중적으로 불 수 있습니다.
