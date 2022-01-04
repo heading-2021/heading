@@ -36,7 +36,7 @@
 #### 기기 Ram Usage Percentage
   - 기기 내 램 사용량을 측정해 숫자로 직접 확인할 수 있습니다.
   - 램 사용량 크기에 비례해 오구(캐릭터)의 속도가 변경됩니다.
- ![tab3_speed](https://user-images.githubusercontent.com/78015565/148020133-94ec9e7b-1157-4cf9-931e-405c54a0a55d.gif)
+ <img src="https://user-images.githubusercontent.com/78015565/148020133-94ec9e7b-1157-4cf9-931e-405c54a0a55d.gif" width="200" height="400"/>
 
 #### 날씨 정보
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 비, 천둥번개, 눈)를 아이콘 및 텍스트로 확인할 수 있습니다.
