@@ -5,11 +5,20 @@
 ##### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
 
 ## Tab1: Contact
-#### 연락처 관리
-#### 기기 내 연락처 연동
-#### 연락처 추가
-#### 통화 연결
-    - 특정 연락처를 swipe 후, "call" 버튼 클릭 시 자동으로 통화가 연결됩니다.
+
+#### 연락처 관리 기능
+
+  - 연락처 로드
+      - Content Proivder를 통해 기기 내 연락처 정보를 불러옵니다
+      - 불러온 연락처 데이터를 Recycler View를 통해 화면에 출력합니다.
+  - 연락처 추가
+      - 우측 하단의 "+" 버튼을 누르면, 연락처 추가화면으로 이동합니다.
+      - 이름과 전화번호를 입력하여 새로운 연락처를 추가할 수 있습니다.
+      - 추가한 연락처는 자동으로 기기 내 연락처 데이터와 연동됩니다.  
+#### 스와이프 시 통화 연결 기능     
+  - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
+  - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
+
 
 ## Tab2: Image Gallery
 #### 기기 내 이미지 업로드
@@ -34,7 +43,7 @@
 #### 새로고침 기능
   - 새로고침 버튼 클릭 시 램 사용량, 날씨, 시간 정보를 실시간으로 업데이트 합니다.
 #### 오구 반응
-  - 오구를 터지하면 반응합니다.
+  - 오구를 터치하면 반응합니다.
 
 ## Required Permission
 ##### WRITE_CONTACTS, READ_CONTACTS, READ_EXTERNAL_STORAGE, CALL_PHONE, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, INTERNET, ACCESS_NETWORK_STATE
