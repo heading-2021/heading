@@ -67,6 +67,7 @@
   <img src="https://user-images.githubusercontent.com/78015565/148020133-94ec9e7b-1157-4cf9-931e-405c54a0a55d.gif" width="200" height="400"/> </p>
 
 #### 날씨 정보
+  - OpenWeatherMap API를 이용하여 날씨 데이터를 JSON형식으로 받아옵니다.
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 눈, 천둥번개, 비)를 아이콘 및 텍스트로 확인할 수 있습니다.
 <div style="bordeㄱ-collapse: collapse;">
 <table border=0 align="center">
