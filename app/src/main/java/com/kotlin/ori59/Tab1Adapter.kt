@@ -20,6 +20,7 @@ class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context
         var itemPhoto: ImageView = itemView.findViewById(R.id.tab1_photo)
         private val callButton: TextView = itemView.findViewById(R.id.call)
         private val coverItem : ViewGroup= itemView.findViewById(R.id.tab1_item_view)
+        private val deleteButton : TextView = itemView.findViewById(R.id.delete)
         init {
             coverItem.setOnClickListener(View.OnClickListener {
                 Log.d("where","coverItem clicked!")
@@ -34,7 +35,12 @@ class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context
                 context.startActivity(intent)
 
             })
-
+            deleteButton.setOnClickListener(View.OnClickListener {
+                Log.d("where","delete button clicked!")
+                val intent : Intent = Intent(context, Tab1DeleteActivity::class.java)
+                intent.putExtra("nameToDelete",itemName.text)
+                context.startActivity(intent)
+            })
         }
 
     }
