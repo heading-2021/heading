@@ -48,7 +48,7 @@
     </tr>
 </table>
 
-<table style="margin-left:0 auto; margin-right:0 auto;">
+<table align="center">
     <tr style="text-align: center;">
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148022355-962022d1-f56c-453f-8b5c-0aa869170ea9.jpg" width="200" height="400"/></td>
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148023405-3cd4698b-5014-4270-bc7c-8245dc05b9bf.jpg" width="200" height="400"/></td>
@@ -59,7 +59,7 @@
 
 #### Light/Dark Mode
   - 실시간 시간을 반영해 오전은 Light Mode, 오후는 Dark Mode로 자동 변환됩니다.
-<table style="margin-left:0 auto; margin-right:0 auto;">
+<table align="center"">
 	<tr style="text-align: center;">
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148025045-1e865b40-ac93-4e85-9a29-b1345e5716eb.jpg" width="200" height="400"/></td> 
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148023257-c8d88e92-c36f-4e4b-a194-eca8ff85aede.jpg" width="200" height="400"/></td>
