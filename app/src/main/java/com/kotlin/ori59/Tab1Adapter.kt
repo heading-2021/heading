@@ -1,4 +1,4 @@
-package com.example.test
+package com.kotlin.ori59
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -8,11 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.test.databinding.FragmentTab1Binding
-import com.example.test.databinding.Tab1ItemRecycleBinding
 
 class Tab1Adapter(private val datas : MutableList<PhoneBook>,private val context:Context) : RecyclerView.Adapter<Tab1Adapter.ViewHolder>() {
 

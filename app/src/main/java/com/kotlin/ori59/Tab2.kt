@@ -1,4 +1,4 @@
-package com.example.test
+package com.kotlin.ori59
 
 import android.content.Context
 import android.content.Intent
@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.github.chrisbanes.photoview.PhotoView
 
 
 class Tab2 : Fragment() {
