@@ -36,8 +36,7 @@
 #### 이미지 확대/축소
   - Focus On 모드 시 작동되며, 한 이미지를 대상으로 Zoom In/Out 기능을 실행합니다.
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/78015565/148030555-c1754c63-2a08-4e5c-a168-c2c8d92c6925.gif
-" width="200" height="400"/> </p>
+  <img src="https://user-images.githubusercontent.com/78015565/148030979-c65b5e62-d7af-4973-9f94-09827ab574fe.gif" width="200" height="400"/> </p>
 
 
 ## Tab3: 오구 with Weather
