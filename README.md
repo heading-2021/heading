@@ -41,7 +41,7 @@
 
 #### 날씨 정보
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 눈, 천둥번개, 비)를 아이콘 및 텍스트로 확인할 수 있습니다.
-<table align="center" rules="groups">
+<table align="center" border="0" cellpadding="0" cellspacing="0">
 	<tr style="text-align: center;">
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148025045-1e865b40-ac93-4e85-9a29-b1345e5716eb.jpg" width="200" height="400"/></td>
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148022237-20701f4f-984c-40b3-aded-1770b01a2c1a.jpg" width="200" height="400"/></td>
