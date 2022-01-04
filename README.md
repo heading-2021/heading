@@ -1,11 +1,10 @@
-# MadCamp 2021 Winter_Ori59 Application
+# MadCamp 2021 Winter: Ori59 Application
 ### Contact, Image Gallery,
 
-## Team : Heading
-#### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
+## Team Heading
+##### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
 
 ## Usage
-
 ### Tab1: Contact
 + 연락처 관리
 + 기기 내 연락처 연동

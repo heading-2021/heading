@@ -94,8 +94,8 @@ class Tab2 : Fragment() {
 
             if (data?.clipData != null) { // 사진 여러개 선택한 경우
                 val count = data.clipData!!.itemCount
-                if (count > 20) {
-                    Toast.makeText(requireContext(), "사진은 20장까지 선택 가능합니다.", Toast.LENGTH_LONG)
+                if (count > 50) {
+                    Toast.makeText(requireContext(), "사진은 50장까지 선택 가능합니다.", Toast.LENGTH_LONG)
                     return
                 }
                 for (i in 0 until count) {
