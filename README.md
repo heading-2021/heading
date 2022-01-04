@@ -71,6 +71,8 @@
 
 #### 오구 반응
   - 오구를 터치하면 반응합니다.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/78015565/148029869-9702f7ca-27f6-45e7-bd24-fe7a7d01e98f.gif" width="200" height="400"/> </p>
 
 ## Required Permission
 ##### WRITE_CONTACTS, READ_CONTACTS, READ_EXTERNAL_STORAGE, CALL_PHONE, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, INTERNET, ACCESS_NETWORK_STATE
