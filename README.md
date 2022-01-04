@@ -16,7 +16,7 @@
       - 이름과 전화번호를 입력하여 새로운 연락처를 추가할 수 있습니다.
       - 추가가 완료되면 다시 연락처 리스트를 보여줍니다.
       - 추가한 연락처는 자동으로 기기 내 연락처 데이터와 연동됩니다.
-<center><img src="https://user-images.githubusercontent.com/96403983/148029930-3d14a78a-f337-484d-9687-0764e09136fd.gif" width="200" height="400"></center>
+<td style="text-align: center;"><img src="https://user-images.githubusercontent.com/96403983/148029930-3d14a78a-f337-484d-9687-0764e09136fd.gif" width="200" height="400"></td>
 - 연락처 삭제
       - 특정 연락처를 좌측으로 swipe 하면, delete 버튼이 나타납니다.
       - delete 버튼을 누르면, 해당 연락처가 삭제됩니다.
