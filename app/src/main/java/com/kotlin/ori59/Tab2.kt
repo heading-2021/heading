@@ -1,4 +1,4 @@
-package com.example.test
+package com.kotlin.ori59
 
 import android.content.Context
 import android.content.Intent

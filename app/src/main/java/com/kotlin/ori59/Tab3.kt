@@ -1,11 +1,10 @@
-package com.example.test
+package com.kotlin.ori59
 
 import android.app.ActivityManager
 import android.content.Context
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationManager
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
@@ -15,11 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.MediaController
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.databinding.DataBindingUtil.setContentView
-import com.bumptech.glide.Glide
 import pl.droidsonroids.gif.GifDrawable
 import pl.droidsonroids.gif.GifImageView
 
@@ -33,6 +28,7 @@ import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.concurrent.schedule
 
 
 class Tab3 : Fragment() {
@@ -73,11 +69,24 @@ class Tab3 : Fragment() {
         var ramUsage = view.findViewById<TextView>(R.id.ram_usage)
 
         var btn = view.findViewById<ImageButton>(R.id.imageButton)
-//        var gif = GifDrawable(resources, R.drawable.runner_2)
         var gif = GifDrawable(resources, R.raw.runner_1)
         var gif_img = view.findViewById<GifImageView>(R.id.gif)
+        var touched_img = view.findViewById<ImageView>(R.id.touched_img)
+
         gif_img.setImageDrawable(gif)
         gif_img.bringToFront()
+
+        touched_img.bringToFront()
+        touched_img.setAlpha(0)
+
+        touched_img.setOnClickListener {
+            touched_img.setAlpha(255)
+            gif_img.setAlpha(0)
+            Timer().schedule(1000){
+                touched_img.setAlpha(0)
+                gif_img.setAlpha(255)
+            }
+        }
 
         val memoryInfo = ActivityManager.MemoryInfo()
         (requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getMemoryInfo(memoryInfo)

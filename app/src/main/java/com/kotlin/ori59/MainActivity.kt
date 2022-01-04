@@ -1,20 +1,11 @@
-package com.example.test
+package com.kotlin.ori59
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Window
-import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
-import android.graphics.PorterDuff
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +18,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.frameLayout, it).commit()
         }
     }
-
     lateinit var tab1:Tab1
     lateinit var tab2:Tab2
     lateinit var tab3:Tab3
@@ -66,6 +56,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
+    override fun onResume(){
+        super.onResume()
+    }
 
 }
