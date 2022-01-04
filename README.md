@@ -18,7 +18,9 @@
 #### 스와이프 시 통화 연결 기능     
   - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
   - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
-
+<img src="https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif" />
+<img src="https://user-images.githubusercontent.com/96403983/148029923-352f85c4-011a-4508-802f-5d99227809d9.gif" />
+<img src="https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif" />
 
 ## Tab2: Image Gallery
 #### 기기 내 이미지 업로드
