@@ -18,22 +18,28 @@
 #### 스와이프 시 통화 연결 기능     
   - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
   - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
-<img src="https://user-images.githubusercontent.com/96403983/148029930-3d14a78a-f337-484d-9687-0764e09136fd.gif" />
-<img src="https://user-images.githubusercontent.com/96403983/148029923-352f85c4-011a-4508-802f-5d99227809d9.gif" />
-<img src="https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif" />
+
 
 ## Tab2: Image Gallery
 #### 기기 내 이미지 업로드
   - Step1. "Press to load image" 버튼을 누릅니다.
   - Step2. 기기 내 갤러리 이미지를 선택하면, 선택된 이미지가 어플리케이션에 업로드됩니다.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/78015565/148030273-5a82aa90-5c94-4b11-bc36-e68bab0e5c5b.gif" width="200" height="400"/> </p>
+
 #### Focus On/Off 기능
   - Focus On : Focused View(가로 scroll)
     - LinearLayoutManager를 통해 한 이미지를 집중적으로 불 수 있습니다.
   - Focus Off : Grid View(세로 scroll)
     - GridLayoutManager를 통해 여러 이미지를 한 눈에 볼 수 있습니다.
+
 #### 이미지 확대/축소
   - Focus On 모드 시 작동되며, 한 이미지를 대상으로 Zoom In/Out 기능을 실행합니다.
-    
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/78015565/148030555-c1754c63-2a08-4e5c-a168-c2c8d92c6925.gif
+" width="200" height="400"/> </p>
+
+
 ## Tab3: 오구 with Weather
 #### 기기 Ram Usage Percentage
   - 기기 내 램 사용량을 측정해 숫자로 직접 확인할 수 있습니다.
