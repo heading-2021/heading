@@ -1,5 +1,9 @@
-# MadCamp 2021-2022 Winter: "Ori59 Application"
-### Contact, Image Gallery, 오구 with Weather
+# MadCamp 2021-2022 Winter Project
+
+## Ori59 Application:
+##### Contact, Image Gallery, 오구 with Weather
+<img src="https://user-images.githubusercontent.com/78015565/148044697-7d99d770-9ab8-4468-bf0a-46e49ebb1a90.jpg" width="100" height="100"/>
+
 
 ## Team Heading
 ##### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
