@@ -12,4 +12,5 @@
     <color name="nightskyblue">#0d182a</color>
     <color name="nightyellow">#ffe000</color>
     <color name="transparent">#0000ffff</color>
+    <color name="red">#ff0000</color>
 </resources>

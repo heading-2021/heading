@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.kotlin.ori59.Tab1AddActivity"/>
+        <activity android:name="com.kotlin.ori59.Tab1DeleteActivity"/>
     </application>
     <!-- Conteact 권한-->
     <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
