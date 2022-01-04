@@ -17,13 +17,7 @@
       - 추가한 연락처는 자동으로 기기 내 연락처 데이터와 연동됩니다.  
 #### 스와이프 시 통화 연결 기능     
   - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
-  - call 버튼을 눌러, 해당 연락처로 통화를 연결할 수 있습니다.
-
-<center>
-|<img src="https://user-images.githubusercontent.com/96403983/148029930-3d14a78a-f337-484d-9687-0764e09136fd.gif" width="200" height="400">|<img src="https://user-images.githubusercontent.com/96403983/148029923-352f85c4-011a-4508-802f-5d99227809d9.gif" width="200" height="400">|<img src="https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif" width="200" height="400">|
-|:-:|:-:|:-:|
-|연락처 추가|연락처 삭제|통화|
-</center>  
+  - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
 
 
 ## Tab2: Image Gallery
@@ -54,7 +48,7 @@
 
 #### 날씨 정보
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 눈, 천둥번개, 비)를 아이콘 및 텍스트로 확인할 수 있습니다.
-<table border="0" cellpadding="0" cellspacing="0" align="center">
+<table border=0 align="center">
 	<tr style="text-align: center;">
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148025045-1e865b40-ac93-4e85-9a29-b1345e5716eb.jpg" width="200" height="400"/></td>
       <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148022237-20701f4f-984c-40b3-aded-1770b01a2c1a.jpg" width="200" height="400"/></td>
