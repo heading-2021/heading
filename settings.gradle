@@ -7,5 +7,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "ori59"
+rootProject.name = "Ori59"
 include ':app'
