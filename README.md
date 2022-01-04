@@ -20,7 +20,7 @@
   - call 버튼을 눌러, 해당 연락처로 통화를 연결할 수 있습니다.
 
 
-|![First Image](https://user-images.githubusercontent.com/96403983/148029930-3d14a78a-f337-484d-9687-0764e09136fd.gif)|![Second Image](https://user-images.githubusercontent.com/96403983/148029923-352f85c4-011a-4508-802f-5d99227809d9.gif)|![Third Image](https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif)|
+|![First Image](https://user-images.githubusercontent.com/96403983/148029930-3d14a78a-f337-484d-9687-0764e09136fd.gif){: width="200" height="400"}|![Second Image](https://user-images.githubusercontent.com/96403983/148029923-352f85c4-011a-4508-802f-5d99227809d9.gif){: width="200" height="400"}|![Third Image](https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif){: width="200" height="400"}|
 |:-:|:-:|:-:|
 |연락처 추가|연락처 삭제|통화|
 
