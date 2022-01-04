@@ -4,37 +4,36 @@
 ## Team Heading
 ##### [김재우](https://github.com/jjwwk0), [한수민](https://github.com/Hans-0101)
 
-## Usage
-### Tab1: Contact
-+ 연락처 관리
-+ 기기 내 연락처 연동
-+ 연락처 추가
-+ 통화 연결
+## Tab1: Contact
+### 연락처 관리
+### 기기 내 연락처 연동
+### 연락처 추가
+### 통화 연결
     - 특정 연락처를 swipe 후, "call" 버튼 클릭 시 자동으로 통화가 연결됩니다.
 
-### Tab2: Image Gallery
-+ 기기 내 이미지 업로드
+## Tab2: Image Gallery
+### 기기 내 이미지 업로드
   - Step1. "Press to load image" 버튼을 누릅니다.
   - Step2. 기기 내 갤러리 이미지를 선택하면, 선택된 이미지가 어플리케이션에 업로드됩니다.
-+ Focus On/Off 기능
+### Focus On/Off 기능
     - Focus On : Focused View(가로 scroll)
       - LinearLayoutManager를 통해 한 이미지를 집중적으로 불 수 있습니다.
     - Focus Off : Grid View(세로 scroll)
       - GridLayoutManager를 통해 여러 이미지를 한 눈에 볼 수 있습니다.
-+ 이미지 확대/축소
+### 이미지 확대/축소
     - Focus On 모드 시 작동되며, 한 이미지를 대상으로 Zoom In/Out 기능을 실행합니다.
     
-### Tab3: 오구 with Weather
-+ 기기 Ram Usage Percentage
+## Tab3: 오구 with Weather
+### 기기 Ram Usage Percentage
   - 기기 내 램 사용량을 측정해 숫자로 직접 확인할 수 있습니다.
   - 램 사용량 크기에 비례해 오구(캐릭터)의 속도가 변경됩니다.
-+ 날씨 정보
+### 날씨 정보
   - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 비, 천둥번개, 눈)를 아이콘 및 텍스트로 확인할 수 있습니다.
-+ Light/Dark Mode
+### Light/Dark Mode
   - 실시간 시간을 반영해 오전은 Light Mode, 오후는 Dark Mode로 자동 변환됩니다.
-+ 새로고침 기능
+### 새로고침 기능
   - 새로고침 버튼 클릭 시 램 사용량, 날씨, 시간 정보를 실시간으로 업데이트 합니다.
-+ 오구 반응
+### 오구 반응
   - 오구를 터지하면 반응합니다.
 
 ## Required Permission
