@@ -19,11 +19,6 @@
   - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
   - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
 
-<img src="https://user-images.githubusercontent.com/96403983/148025138-82f37836-bfe9-40fc-a2c0-d6c7408b6ec5.mp4" />
-<img src="https://user-images.githubusercontent.com/96403983/148025154-8f798c0d-13d2-4574-b3a9-886081de8895.mp4" />
-<img src="https://user-images.githubusercontent.com/96403983/148025164-c41260e1-d96f-48cc-85be-60f66eef3fbf.mp4" />
-
-
 
 ## Tab2: Image Gallery
 #### 기기 내 이미지 업로드
@@ -45,18 +40,35 @@
   <img src="https://user-images.githubusercontent.com/78015565/148020133-94ec9e7b-1157-4cf9-931e-405c54a0a55d.gif" width="200" height="400"/> </p>
 
 #### 날씨 정보
-  - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 비, 천둥번개, 눈)를 아이콘 및 텍스트로 확인할 수 있습니다.
-<img src="https://user-images.githubusercontent.com/78015565/148023352-c55b0b89-8c15-4c9c-8528-3bbb78365b7b.jpg" width="200" height="400"/>
-<img src="https://user-images.githubusercontent.com/78015565/148022237-20701f4f-984c-40b3-aded-1770b01a2c1a.jpg" width="200" height="400"/>
-<img src="https://user-images.githubusercontent.com/78015565/148022299-dfd6ef82-f92d-41c0-9340-8db7ebf604bd.jpg" width="200" height="400"/>
-<img src="https://user-images.githubusercontent.com/78015565/148022355-962022d1-f56c-453f-8b5c-0aa869170ea9.jpg" width="200" height="400"/>
-<img src="https://user-images.githubusercontent.com/78015565/148023405-3cd4698b-5014-4270-bc7c-8245dc05b9bf.jpg" width="200" height="400"/>
-<img src="https://user-images.githubusercontent.com/78015565/148023257-c8d88e92-c36f-4e4b-a194-eca8ff85aede.jpg" width="200" height="400"/>
+  - 현위치에 따른 기온 및 간단한 날씨(맑음, 흐림, 눈, 천둥번개, 비)를 아이콘 및 텍스트로 확인할 수 있습니다.
+<table style="margin-left: auto; margin-right: auto;">
+	<tr style="text-align: center;">
+    <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148025045-1e865b40-ac93-4e85-9a29-b1345e5716eb.jpg" width="200" height="400"/></td>
+    <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148022237-20701f4f-984c-40b3-aded-1770b01a2c1a.jpg" width="200" height="400"/></td>
+    </tr>
+</table>
+
+<table style="margin-left: auto; margin-right: auto;">
+    <tr style="text-align: center;">
+    <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148022355-962022d1-f56c-453f-8b5c-0aa869170ea9.jpg" width="200" height="400"/></td>
+    <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148023405-3cd4698b-5014-4270-bc7c-8245dc05b9bf.jpg" width="200" height="400"/></td>
+    <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148022299-dfd6ef82-f92d-41c0-9340-8db7ebf604bd.jpg" width="200" height="400"/></td>
+    </tr>
+</table>
+
 
 #### Light/Dark Mode
   - 실시간 시간을 반영해 오전은 Light Mode, 오후는 Dark Mode로 자동 변환됩니다.
+<table style="margin-left: auto; margin-right: auto;">
+	<tr style="text-align: center;">
+	<td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148025045-1e865b40-ac93-4e85-9a29-b1345e5716eb.jpg" width="200" height="400"/></td> 
+    <td style="text-align: center;"><img src="https://user-images.githubusercontent.com/78015565/148023257-c8d88e92-c36f-4e4b-a194-eca8ff85aede.jpg" width="200" height="400"/></td>
+    </tr>
+</table>
+
 #### 새로고침 기능
   - 새로고침 버튼 클릭 시 램 사용량, 날씨, 시간 정보를 실시간으로 업데이트 합니다.
+
 #### 오구 반응
   - 오구를 터치하면 반응합니다.
 
