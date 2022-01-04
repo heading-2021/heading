@@ -16,12 +16,12 @@
   - Step1. "Press to load image" 버튼을 누릅니다.
   - Step2. 기기 내 갤러리 이미지를 선택하면, 선택된 이미지가 어플리케이션에 업로드됩니다.
 ### Focus On/Off 기능
-    - Focus On : Focused View(가로 scroll)
-      - LinearLayoutManager를 통해 한 이미지를 집중적으로 불 수 있습니다.
-    - Focus Off : Grid View(세로 scroll)
-      - GridLayoutManager를 통해 여러 이미지를 한 눈에 볼 수 있습니다.
+  - Focus On : Focused View(가로 scroll)
+    - LinearLayoutManager를 통해 한 이미지를 집중적으로 불 수 있습니다.
+  - Focus Off : Grid View(세로 scroll)
+    - GridLayoutManager를 통해 여러 이미지를 한 눈에 볼 수 있습니다.
 ### 이미지 확대/축소
-    - Focus On 모드 시 작동되며, 한 이미지를 대상으로 Zoom In/Out 기능을 실행합니다.
+  - Focus On 모드 시 작동되며, 한 이미지를 대상으로 Zoom In/Out 기능을 실행합니다.
     
 ## Tab3: 오구 with Weather
 ### 기기 Ram Usage Percentage
