@@ -16,11 +16,11 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.kotlin.ori59.databinding.FragmentTab1Binding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_tab1.*
 import android.content.ContentResolver
 import android.content.Intent
+import com.kotlin.ori59.databinding.FragmentTab1Binding
 
 
 class Tab1 : Fragment(), View.OnClickListener {
