@@ -38,12 +38,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif" width="200" height="400"></p>
 
 
-#### 스와이프 시 통화 연결 기능     
-  - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
-  - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
-
-<p align="center"><img src="https://user-images.githubusercontent.com/96403983/148029905-c36b01fc-553f-4f0a-9696-e16b1574f4c4.gif" width="200" height="400"></p>
-
 ## Tab2: Image Gallery
 #### 기기 내 이미지 업로드
   - Step1. "Press to load image" 버튼을 누릅니다.
