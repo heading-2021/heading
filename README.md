@@ -7,6 +7,7 @@
 ## Tab1: Contact
 
 #### 연락처 관리 기능
+
     - 연락처 로드
         - Content Proivder를 통해 기기 내 연락처 정보를 불러옵니다.
         - 불러온 연락처 데이터를 Recycler View를 통해 화면에 출력합니다.
@@ -43,7 +44,7 @@
 #### 새로고침 기능
   - 새로고침 버튼 클릭 시 램 사용량, 날씨, 시간 정보를 실시간으로 업데이트 합니다.
 #### 오구 반응
-  - 오구를 터지하면 반응합니다.
+  - 오구를 터치하면 반응합니다.
 
 ## Required Permission
 ##### WRITE_CONTACTS, READ_CONTACTS, READ_EXTERNAL_STORAGE, CALL_PHONE, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, INTERNET, ACCESS_NETWORK_STATE
