@@ -19,9 +19,9 @@
   - 특정 연락처를 좌측으로 swipe 하면, call 버튼이 나타납니다.
   - call 버튼을 눌러, 해당 연락처로 전화를 연결할 수 있습니다.
 
-<img alt="" src="https://user-images.githubusercontent.com/96403983/148025138-82f37836-bfe9-40fc-a2c0-d6c7408b6ec5.mp4" />
-<img alt="" src="https://user-images.githubusercontent.com/96403983/148025154-8f798c0d-13d2-4574-b3a9-886081de8895.mp4" />
-<img alt="" src="https://user-images.githubusercontent.com/96403983/148025164-c41260e1-d96f-48cc-85be-60f66eef3fbf.mp4" />
+<img src="https://user-images.githubusercontent.com/96403983/148025138-82f37836-bfe9-40fc-a2c0-d6c7408b6ec5.mp4" />
+<img src="https://user-images.githubusercontent.com/96403983/148025154-8f798c0d-13d2-4574-b3a9-886081de8895.mp4" />
+<img src="https://user-images.githubusercontent.com/96403983/148025164-c41260e1-d96f-48cc-85be-60f66eef3fbf.mp4" />
 
 
 
